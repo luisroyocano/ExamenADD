@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE reservas[
+    <!ELEMENT reservas (cliente,hotel,venta)>
+        <!ELEMENT cliente (nombre,dni,telefono*)>
+            <!ATTLIST cliente codigo ID #REQUIRED>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT dni (#PCDATA)>
+            <!ELEMENT telefono (#PCDATA)>
+        <!ELEMENT hotel (nombre_hotel,estrellas,restaurante,ciudad)>
+            <!ATTLIST hotel codigo ID #REQUIRED>
+            <!ELEMENT nombre_hotel (#PCDATA)>
+            <!ELEMENT estrellas (#PCDATA)>
+            <!ELEMENT restaurante (#PCDATA)>
+            <!ELEMENT ciudad (#PCDATA)>
+        <!ELEMENT venta (precio, inicio, fin?)>
+            <!ATTLIST venta codigo ID #REQUIRED>
+            <!ATTLIST venta cliente IDREF #IMPLIED>
+            <!ATTLIST venta hotel IDREF #IMPLIED>
+            <!ELEMENT precio (#PCDATA)>
+            <!ELEMENT inicio (#PCDATA)>
+            <!ELEMENT fin (#PCDATA)>
+]>
+<reservas>
+    <cliente codigo="c1">
+        <nombre>Pepe</nombre>
+        <dni>5012</dni>
+        <telefono>91222</telefono>
+    </cliente>
+    <hotel codigo="h1">
+        <nombre_hotel>ritz</nombre_hotel>
+        <estrellas>5</estrellas>
+        <restaurante>si</restaurante>
+        <ciudad>madrid</ciudad>
+    </hotel>
+    <venta codigo="r1" cliente="c1" hotel="h1">
+        <precio>50,00€</precio>
+        <inicio>11/05/2005</inicio>
+        <fin>15/05/2005</fin>
+    </venta>
+</reservas>
+
